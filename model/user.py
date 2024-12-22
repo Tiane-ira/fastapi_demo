@@ -6,8 +6,8 @@ from sqlalchemy.orm import DeclarativeBase
 
 class Base(DeclarativeBase):
     created_at = Column(DateTime, default=datetime.now)
-    updated_at = Column(DateTime, default=datetime.now)
-    deleted_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=None)
+    deleted_at = Column(DateTime, default=None)
 
     def to_dict(self):
         data = {c.name: getattr(self, c.name) for c in self.__table__.columns}
